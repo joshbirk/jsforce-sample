@@ -1,5 +1,3 @@
-
-
 var jsforce = require("jsforce");
 var path = require("path");
 var configpath = path.normalize("./");
@@ -19,7 +17,8 @@ Commented code below can be used to set up a web based oauth flow instead
 of username and password.  Doing so will require a connected app and a user 
 with the correct IP permissions.
 
-Learn more here: {{}}
+Learn more here: 
+https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_authentication.htm
 
 */
 
@@ -29,9 +28,9 @@ var express = require('express');
 var app = express();
 
 var oauth2 = null;
-var publicKey = null;
-var privateKey = null;
-var local_domain = null;
+var publicKey =  process.env.publicKey || config.publicKey || null;
+var privateKey =  process.env.privateKey || config.privateKey || null;
+var local_domain =  process.env.local_domain || config.local_domain || null;
 
 var oauth2 = new jsforce.OAuth2({
     // you can change loginUrl to connect to sandbox or prerelease env.
@@ -51,6 +50,7 @@ var oauth2 = new jsforce.OAuth2({
 
 
 //Log in using username and password, set loggedIn to true and handle a callback
+//
 function login(callback) {
     if(username && password) {
         conn.login(username, password, function(err, res) {
@@ -71,12 +71,12 @@ function login(callback) {
 /*
 
 Below are three different styles of querying records that jsforce supports
-For more on data modeling in Salesforce: {{}}
+For more on data modeling in Salesforce: https://trailhead.salesforce.com/en/content/learn/modules/data_modeling
 
 */
 
 //find contacts using plain SOQL
-//More on SOQL here: {{}}
+//More on SOQL here: https://trailhead.salesforce.com/en/content/learn/modules/apex_database
 function displayContactsSOQL() {
     conn.query("SELECT Id, Name, CreatedDate FROM Contact", function(err, result) {
         if (err) { return console.error(err); }
@@ -175,7 +175,10 @@ function deleteContact() {
 }
 
 
-//comment out if doing web based oauth
+//to test out the above code on the command line:
+//node index.js {command}
+//
+//where command is one of the case statements below
 var callback = null;
 if (process.argv[2]) { 
     console.log(process.argv[2]);
