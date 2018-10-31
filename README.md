@@ -9,17 +9,17 @@ You will also want a Developer Edition org (which are free and do not have a fix
 Then to install and run:
 
 1. Clone or download this repository
-2. In the repository directory run *npm install -local*
+2. In the repository directory run **npm install -local**
 3. Modify config.json with the username and password for your Developer Edition.
-4. Run *node index.js displayContactsSOQL* to see a list of contacts from your instance.
+4. Run **node index.js displayContactsSOQL** to see a list of contacts from your instance.
 
 index.js will accept:
-    * displayContactsSOQL
-    * displayContactsEventMethod
-    * displayContactsMethodChain
-    * createContact
-    * updateContact
-    * deleteContact
+* displayContactsSOQL
+* displayContactsEventMethod
+* displayContactsMethodChain
+* createContact
+* updateContact
+* deleteContact
 
 Comments within index.js point to specifics about the code.  Full documentation for jsforce can be found on the project site: https://jsforce.github.io/
 
