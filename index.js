@@ -10,7 +10,7 @@ var loggedIn = false;
 //For username / password flow
 var username = process.env.username || config.username || null;
 var password = process.env.password || config.password || null;
-
+var production = true; //for sandbox and scratch orgs, set to false
 /*
 
 Commented code below can be used to set up a web based oauth flow instead
@@ -52,6 +52,7 @@ var oauth2 = new jsforce.OAuth2({
 //Log in using username and password, set loggedIn to true and handle a callback
 //
 function login(callback) {
+    if(!production) { conn.loginUrl = 'https://test.salesforce.com'; }
     if(username && password) {
         conn.login(username, password, function(err, res) {
             if (err) { return console.error(err); }
