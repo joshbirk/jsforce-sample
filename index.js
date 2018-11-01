@@ -10,8 +10,14 @@ var loggedIn = false;
 //For username / password flow
 var username = process.env.username || config.username || null;
 var password = process.env.password || config.password || null;
-var production = process.env.production || config.production ||true; //for sandbox and scratch orgs, set to false
+
+var production = process.env.production || config.production || true; //for sandbox and scratch orgs, set to false
+if(production === "true" || production === "false") { production = (production === "true"); }
+
 var deployToWeb = process.env.deployToWeb || config.deployToWeb ||true; 
+if(deployToWeb === "true" || deployToWeb === "false") { deployToWeb = (deployToWeb === "true"); }
+
+
 /*
 
 Commented code below can be used to set up a web based oauth flow instead

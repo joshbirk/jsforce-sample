@@ -14,12 +14,12 @@
       },
       "production": {
           "description": "Set true for production / developer instances, false for scratch or sandbox.",
-          "value":"",
+          "value":"true",
           "required":true
       },
       "deployToWeb": {
         "description": "Set true for express web app, false for CLI only.",
-        "value":"",
+        "value":"true",
         "required":true
     },
       "publicKey": {

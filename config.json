@@ -1,5 +1,5 @@
 {
     "username": null,
     "password": null,
-    "deployToWeb": false
+    "deployToWeb": true
 }
