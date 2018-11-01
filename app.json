@@ -1,5 +1,5 @@
 {
-    "name": "jsforce commands",
+    "name": "jsforce sample",
     "description": "Sample applications using jsforce",
     "env": {
       "username": {
