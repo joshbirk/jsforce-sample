@@ -17,6 +17,11 @@
           "value":"",
           "required":true
       },
+      "deployToWeb": {
+        "description": "Set true for express web app, false for CLI only.",
+        "value":"",
+        "required":true
+    },
       "publicKey": {
           "description": "Public key of connected app.  Leave blank if using username / password.",
           "value":"",

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsforce": "1.9.1"
+    "jsforce": "1.9.1",
+    "express": "*"
   }
 }

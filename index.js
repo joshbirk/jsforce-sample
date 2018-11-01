@@ -11,6 +11,7 @@ var loggedIn = false;
 var username = process.env.username || config.username || null;
 var password = process.env.password || config.password || null;
 var production = process.env.production || config.production ||true; //for sandbox and scratch orgs, set to false
+var deployToWeb = process.env.deployToWeb || config.deployToWeb ||true; 
 /*
 
 Commented code below can be used to set up a web based oauth flow instead
@@ -22,30 +23,50 @@ https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_u
 
 */
 
-/*
-var port = process.env.PORT || 8675;
-var express = require('express');
-var app = express();
+if(deployToWeb) {
+    var port = process.env.PORT || 8675;
+    var express = require('express');
+    var app = express();
 
-var oauth2 = null;
-var publicKey =  process.env.publicKey || config.publicKey || null;
-var privateKey =  process.env.privateKey || config.privateKey || null;
-var local_domain =  process.env.local_domain || config.local_domain || null;
+    var oauth2 = null;
+    var publicKey =  process.env.publicKey || config.publicKey || null;
+    var privateKey =  process.env.privateKey || config.privateKey || null;
 
-var oauth2 = new jsforce.OAuth2({
-    // you can change loginUrl to connect to sandbox or prerelease env.
-    // loginUrl : 'https://test.salesforce.com',
-    clientId : publicKey,
-    clientSecret : privateKey,
-    redirectUri : '/oauth2/auth'
-  });
-  //
-  // Get authorization url and redirect to it.
-  //
-  app.get('/oauth2/auth', function(req, res) {
-    res.redirect(oauth2.getAuthorizationUrl({ scope : 'api id web' }));
-  });
-*/
+
+    if(publicKey && privateKey) {
+        var oauth2 = new jsforce.OAuth2({
+            // you can change loginUrl to connect to sandbox or prerelease env.
+            // loginUrl : 'https://test.salesforce.com',
+            clientId : publicKey,
+            clientSecret : privateKey,
+            redirectUri : '/oauth2/auth'
+        });
+
+                //
+        // Get authorization url and redirect to it.
+        //
+        app.get('/oauth2/auth', function(req, res) {
+            res.redirect(oauth2.getAuthorizationUrl({ scope : 'api id web' }));
+        });
+    }
+
+    app.get('/contacts/', function(req, res) {
+        conn.query("SELECT Id, Name, CreatedDate FROM Contact", function(err, result) {
+            if (err) { return console.error(err); }
+            console.log("total : " + result.totalSize);
+            res.json(result);
+          });
+    });
+
+    //setup actual server
+    var server = app.listen(port, function () {
+
+        console.log('jsforce sample running on '+port);
+    });
+}
+
+
+  
 
 
 

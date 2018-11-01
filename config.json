@@ -1,4 +1,5 @@
 {
     "username": null,
-    "password": null
+    "password": null,
+    "deployToWeb": false
 }
