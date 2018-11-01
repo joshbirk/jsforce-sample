@@ -51,14 +51,19 @@ if(deployToWeb) {
                 //
         // Get authorization url and redirect to it.
         //
+       
         app.get('/oauth2/auth', function(req, res) {
             res.redirect(oauth2.getAuthorizationUrl({ scope : 'api id web' }));
         });
     }
 
+    app.get('/', function(req, res) {
+        res.json({"status":"online"});
+    });
+
     app.get('/contacts/', function(req, res) {
         conn.query("SELECT Id, Name, CreatedDate FROM Contact", function(err, result) {
-            if (err) { return console.error(err); }
+            if (err) { res.json(err); }
             console.log("total : " + result.totalSize);
             res.json(result);
           });
