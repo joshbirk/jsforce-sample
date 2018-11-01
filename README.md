@@ -25,6 +25,13 @@ Comments within index.js point to specifics about the code.  Full documentation 
 
 To learn more about developing on the Salesforce Platform, see the Beginner Developer trail on Trailhead: https://trailhead.salesforce.com/content/learn/trails/force_com_dev_beginner
 
+## Deploying to Heroku
+
+1. Make sure you are logged in to the [Heroku Dashboard](https://dashboard.heroku.com/)
+1. Click the button below to deploy the Slash Commands on Heroku:
+
+    [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 
 
 

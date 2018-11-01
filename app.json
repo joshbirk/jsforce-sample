@@ -1,0 +1,31 @@
+{
+    "name": "jsforce commands",
+    "description": "Sample applications using jsforce",
+    "env": {
+      "username": {
+          "description": "Username for your Salesforce instance. Leave blank if using web based OAuth and Connected App.",
+          "value":"",
+          "required":false
+      },
+      "password": {
+          "description": "Password for your Salesforce instance. Leave blank if using web based OAuth and Connected App.",
+          "value":"",
+          "required":false
+      },
+      "production": {
+          "description": "Set true for production / developer instances, false for scratch or sandbox.",
+          "value":"",
+          "required":true
+      },
+      "publicKey": {
+          "description": "Public key of connected app.  Leave blank if using username / password.",
+          "value":"",
+          "required":false
+      },
+      "privateKey": {
+          "description": "Private key of connected app.  Leave blank if using username / password.",
+          "value":"",
+          "required":false
+      }
+    }
+  }

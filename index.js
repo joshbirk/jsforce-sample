@@ -10,7 +10,7 @@ var loggedIn = false;
 //For username / password flow
 var username = process.env.username || config.username || null;
 var password = process.env.password || config.password || null;
-var production = true; //for sandbox and scratch orgs, set to false
+var production = process.env.production || config.production ||true; //for sandbox and scratch orgs, set to false
 /*
 
 Commented code below can be used to set up a web based oauth flow instead
@@ -37,7 +37,7 @@ var oauth2 = new jsforce.OAuth2({
     // loginUrl : 'https://test.salesforce.com',
     clientId : publicKey,
     clientSecret : privateKey,
-    redirectUri : local_domain+'/oauth2/auth'
+    redirectUri : '/oauth2/auth'
   });
   //
   // Get authorization url and redirect to it.
