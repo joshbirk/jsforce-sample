@@ -25,10 +25,19 @@ Comments within index.js point to specifics about the code.  Full documentation 
 
 To learn more about developing on the Salesforce Platform, see the Beginner Developer trail on Trailhead: https://trailhead.salesforce.com/content/learn/trails/force_com_dev_beginner
 
-## Deploying to Heroku
+## Deploying to Heroku via CLI
+
+1. Sign up and install Heroku: [https://signup.heroku.com/](https://signup.heroku.com/)
+1. Clone this repo.
+1. Login via command line: **heroku login**.
+1. In the repo directory run **heroku create**.
+1. Run **git push heroku master**.
+1. Run **herou open**.
+
+## Deploying to Heroku via Deploy Button
 
 1. Make sure you are logged in to the [Heroku Dashboard](https://dashboard.heroku.com/)
-1. Click the button below to deploy the Slash Commands on Heroku:
+1. Click the button below to deploy on Heroku:
 
     [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
