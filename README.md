@@ -21,7 +21,7 @@ index.js will accept:
 * updateContact
 * deleteContact
 
-In config.json, you can also set "deployToWeb" to be true to see a sample API call via express at /localhost.
+In config.json, you can also set "deployToWeb" to be true to see a sample API call via express at /contacts.
 
 If you are using a scratch org or sandbox, add "production" to config.json and set it to false.
 
