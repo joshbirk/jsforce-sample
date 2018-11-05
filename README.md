@@ -21,6 +21,12 @@ index.js will accept:
 * updateContact
 * deleteContact
 
+In config.json, you can also set "deployToWeb" to be true to see a sample API call via express at /localhost.
+
+If you are using a scratch org or sandbox, add "production" to config.json and set it to false.
+
+All variables can be handled as environment variables as well, which will override config.json.
+
 Comments within index.js point to specifics about the code.  Full documentation for jsforce can be found on the project site: https://jsforce.github.io/
 
 To learn more about developing on the Salesforce Platform, see the Beginner Developer trail on Trailhead: https://trailhead.salesforce.com/content/learn/trails/force_com_dev_beginner
