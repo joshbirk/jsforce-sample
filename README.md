@@ -36,7 +36,7 @@ To learn more about developing on the Salesforce Platform, see the Beginner Deve
 1. Sign up and install Heroku: [https://signup.heroku.com/](https://signup.heroku.com/)
 1. Clone this repo.
 1. Login via command line: **heroku login**.
-1. In the repo directory (**cd jsforce-sameple**), run **heroku create**.
+1. In the repo directory (**cd jsforce-sample**), run **heroku create**.
 1. Run **git push heroku master**.
 1. Run **herou open**.
 
